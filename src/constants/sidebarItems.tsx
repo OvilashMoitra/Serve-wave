@@ -100,11 +100,11 @@ export const sidebarItems = (role: string) => {
       icon: <TableOutlined />,
       key: `/content_manager/faq`,
     },
-    // {
-    //   label: <Link href={`/content_manager/blog`}>Manage Blogs</Link>,
-    //   icon: <TableOutlined />,
-    //   key: `/content_manager/blog`,
-    // },
+    {
+      label: <Link href={`/content_manager/blog`}>Manage Blogs</Link>,
+      icon: <TableOutlined />,
+      key: `/content_manager/blog`,
+    },
     {
       label: <Link href={`/super_admin/manage_order`}>Manage Order</Link>,
       icon: <TableOutlined />,
