@@ -1,0 +1,30 @@
+.callAction{
+    width: 90vw;
+}
+@media (min-width: 768px) { 
+    .callAction{
+        width: 400px;
+    }
+}
+.callToAction-lg{
+    display: none;
+}
+.callToAction-label-lg{
+    top: 50vh;
+    left: -20%;
+}
+.callToAction-label-sm{
+    top: 50vh;
+    left: -15%;
+    rotate: -90deg;
+}
+/* @media (min-width: 768px) { 
+    .callToAction-lg{
+        display: block;
+    }
+} */
+.callToAction-sm{
+    display: block;
+    
+}
+
