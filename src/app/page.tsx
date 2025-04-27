@@ -14,6 +14,7 @@ import FAQSection from '@/components/ui/FAQSection'
 
 import Link from 'next/link'
 import FeedbackForm from '@/components/ui/FeedbackForm'
+import Stats from '@/components/ui/Stats'
 
 export default function Home() {
 
@@ -24,6 +25,7 @@ export default function Home() {
       <Navbar />
       <HomePageBanner/>
         <ContactCalltoAction />
+        <Stats/>
         <PriceSection />
         <FAQSection />
         <Footer />
