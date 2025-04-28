@@ -21,7 +21,7 @@ export const blogApi = bugBusterProApi.injectEndpoints({
         }),
         getAllBlog: build.query({
             query: (query) => ({
-                url: `${Blog_URL}/${query}`,
+                url: `${Blog_URL}${query}`,
                 method: "GET",
             }),
             providesTags: ["blog"]
