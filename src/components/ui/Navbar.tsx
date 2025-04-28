@@ -1,20 +1,31 @@
 "use client"
 
-import { Button, Dropdown, MenuProps } from "antd";
+import { Button, Dropdown, MenuProps, Space } from "antd";
 import { RxAvatar } from 'react-icons/rx';
 import Link from "next/link";
 import { localStorageHelper } from "@/helper/credential";
 import { useRouter } from "next/navigation";
-
+import { IoMdNotifications } from "react-icons/io";
+import { useGetNotificationsbyUserQuery, useReadNotificationsMutation } from "@/redux/api/notificationApi";
 
 
 
 const Navbar = () => {
 
     const isLogedIn = localStorageHelper.getUserInfo()
+    const { data: notifications } = useGetNotificationsbyUserQuery(
+        isLogedIn?.data?._id, 
+        {
+            pollingInterval: isLogedIn?.data?._id ? 3000 : 0, // Start polling if logged in, otherwise no polling
+            skip: !isLogedIn?.data?._id, // Skip if not logged in
+        }
+    );
+
+    const [readNotification]=useReadNotificationsMutation()
+
     const route=useRouter()
     console.log({ isLogedIn }, 16);
-    console.log(isLogedIn?.data?.role,17)
+
 
 
     const handleLogout = () => {
@@ -67,7 +78,26 @@ const Navbar = () => {
                  </div>
           ),
         }
-      ];
+    ];
+    
+
+    const notifcationsItems: MenuProps['items'] = notifications?.data?.map(item => ({
+        label: (
+            <p>
+                  {item?.message}
+            </p>
+           
+        ),
+        key: '0',
+    }));
+
+
+    const unreadNotification =notifications?.data?.filter(item=>item.read===false)
+    const notificationButton = unreadNotification?.length > 0 ? <IoMdNotifications
+        onClick={()=>readNotification(isLogedIn?.data?._id)}
+        className={`font-bold text-lg text-red-500`} /> : <IoMdNotifications className={`font-bold text-lg `} />
+    
+      
 
     return (
         <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
@@ -88,6 +118,16 @@ const Navbar = () => {
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block">
                     <div className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7 md:mt-0 md:pl-7">
                         {/* <Link className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href="/work">Work</Link> */}
+                        <button>
+                            
+                            <Dropdown menu={{ items:notifcationsItems }} trigger={['click']}>
+                                {/* <a onClick={(e) => e.preventDefault()}> */}
+                                <Space>
+                                    {notificationButton}
+                                </Space>
+                             {/* </a> */}
+                            </Dropdown>
+                        </button>
                         <Link className="font-medium text-gray-500 hover:text-gray-400 md:py-6 dark:text-gray-400 dark:hover:text-gray-500" href="/blog">Blog</Link>
                         {
                             // @ts-ignore

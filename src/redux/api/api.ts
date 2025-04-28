@@ -12,5 +12,5 @@ export const bugBusterProApi = createApi({
     endpoints: (build) => ({
 
     }),
-    tagTypes: ['faq', 'role', "service", "stats", "blog", "cart", "contact", "order", "review", 'user', "blogTags","auth"]
+    tagTypes: ['faq', 'role', "service", "stats", "blog", "cart", "contact", "order", "review", 'user', "blogTags", "auth", "notification"]
 })
