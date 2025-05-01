@@ -20,7 +20,7 @@ const getStatusColor = (status: string) => {
             return 'orange'; 
         case 'PROCESSING':
             return 'blue';
-        case 'COMPLETED':
+        case 'DONE':
             return 'green'; 
         case 'CANCELLED':
             return 'red'; 
@@ -57,22 +57,24 @@ const OrdersPage = () => {
         { title: 'Service For', dataIndex: 'idealFor', key: '3' },
         { title: 'Service Price', dataIndex: 'price', key: '4' },
         { title: 'Status', dataIndex: 'status', key: '4' },
+        { title: 'Payment Status', dataIndex: 'paymentStatus', key: '5' },
         {
           title: 'Action',
-          key: '5',
+          key: '6',
           dataIndex: 'Operation'
         },
     ];
 
     let transformedData;
     if (data?.success) { 
-        transformedData = data?.data.map((item: { id: string;status:string, service: { id:string, serviceName: string; idealFor: string; price: string; };review:Object[] }) => ({
+        transformedData = data?.data.map((item: { id: string; paymentStatus: string; status:string, service: { id:string, serviceName: string; idealFor: string; price: string;  };review:Object[] }) => ({
             key: item.id,
             id: item.id,
             name: item.service.serviceName,
             idealFor: item.service.idealFor,
             price: item.service.price,
             status: <span className='rounded-lg inline-block p-1' style={{ background: getStatusColor(item.status) }}>{item?.status}</span>,
+            paymentStatus:<span className='rounded-lg inline-block p-1' style={{ background: getStatusColor(item.paymentStatus) }}>{item?.paymentStatus}</span>,
             Operation: <div>
                 <Link className="text-lg text-black" href={`/order/${item?.service?.id}`}>
                 <Button style={{background:"green"}} type='primary'>View Details</Button>

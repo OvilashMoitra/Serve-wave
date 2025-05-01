@@ -95,12 +95,13 @@ const PurchaseCard = ({ id,cart_id }: { id: string,cart_id:string}) => {
             cart_id:cart_id,
             customerId: userInfo?.data?._id
         })
-        console.log(orderResponse);
+        console.log(orderResponse,'purchase card');
         setIsOpen(false);
         // @ts-ignore
-        if (orderResponse?.data.success) {
-            message.success('Order Created Successfully');
-            router.push('/order')
+        if (orderResponse?.data?.success) {
+            // message.success('Order Created Successfully');
+            router.replace(orderResponse?.data?.url)
+            // router.push('/order')
         } else {
             message.error('Something went wrong');
         }

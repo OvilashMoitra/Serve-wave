@@ -41,9 +41,15 @@ export const orderApi = bugBusterProApi.injectEndpoints({
             }),
             invalidatesTags: ['order']
         }),
+        verifyPayment: build.query({
+            query: (sessionId) => ({
+                url: `${Order_URL}/verify-payment/${sessionId}`,
+                method: "GET",
+            })
+        })
     }),
 })
 
 export const {
-    useCreateOrderMutation,useDeleteOrderMutation,useGetAllOrdersQuery,useUpdateOrderMutation, useGetUserOrdersQuery
+    useCreateOrderMutation, useDeleteOrderMutation, useGetAllOrdersQuery, useUpdateOrderMutation, useGetUserOrdersQuery, useVerifyPaymentQuery
 } = orderApi;

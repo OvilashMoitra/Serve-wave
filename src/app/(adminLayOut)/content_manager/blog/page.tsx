@@ -2,7 +2,7 @@
 "use client"
 
 import DynamicTable from '@/components/ui/Table/DynamicTable';
-import { useGetAllBlogQuery } from '@/redux/api/blogApi';
+import { useDeleteBlogMutation, useGetAllBlogQuery } from '@/redux/api/blogApi';
 import { Button, Tag } from 'antd';
 import Link from 'next/link';
 
@@ -37,7 +37,9 @@ const columns = [
 
 const page = () => {
   // !hook
-  const { data, isLoading } = useGetAllBlogQuery(undefined);
+  const query="?"
+  const { data, isLoading } = useGetAllBlogQuery("?");
+  const [deleteBlog]=useDeleteBlogMutation()
   // !function
   function extractTags(blogData:Record<any, string>) {
     if (blogData.tags && Array.isArray(blogData.tags)) {
@@ -49,7 +51,9 @@ const page = () => {
     return {
       blogTitle: elem?.blogTitle,
       blogTags: extractTags(elem).map(tag => String(tag)),
-      Operation: <Link href={`/content_manager/blog/${elem?.id}`}>Update</Link>,
+      Operation: <button
+        onClick={()=>deleteBlog(elem?.id)}
+      >Delete</button>,
     };
   }) ?? [];
 
