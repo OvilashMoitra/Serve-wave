@@ -32,7 +32,7 @@ export default function PaymentFailedPage() {
             </div>
             <h3 className="text-center text-2xl font-bold text-rose-700">Payment Failed</h3>
             <p className="text-center text-rose-500 mt-1">
-              We couldn't process your payment
+              We could not process your payment
             </p>
           </div>
           <div className="space-y-4">
@@ -48,7 +48,7 @@ export default function PaymentFailedPage() {
             >
               <p className="flex items-start">
                 <span>
-                  Your card hasn't been charged. You can try again with the same or a different payment method.
+                  Your card has not been charged. You can try again with the same or a different payment method.
                 </span>
               </p>
             </div>
