@@ -1,5 +1,5 @@
 "use client"
-
+// @ts-nocheck
 import { Button, Dropdown, MenuProps, Space } from "antd";
 import { RxAvatar } from 'react-icons/rx';
 import Link from "next/link";

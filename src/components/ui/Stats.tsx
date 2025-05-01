@@ -9,7 +9,7 @@ const Stats = () => {
     const { data, isLoading } = useGetAllStatsQuery(undefined)
 
 
-    console.log(data?.data[0]);
+    console.log(data,'stats');
 
     return (
         <>

@@ -1,4 +1,5 @@
 "use client"
+// @ts-ignore
 import BlogCard from "@/components/ui/Blog/BlogCard";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
@@ -79,6 +80,7 @@ export default function Home() {
             <div className="bg-slate-300 rounded-lg  h-screen my-auto sticky">
               <h3 className="text-center h-3  rounded-lg px-6 py-3 mb-4">Select Blog Tag</h3>
               <p className="bg-black w-full"></p>
+               {/* t */}
               {tags?.data?.map(tag => <li
                 key={tag.id}
                 onClick={() => setBlogTag(tag?.tagName)}

@@ -4,7 +4,7 @@ import { useCreateCartMutation } from "@/redux/api/cartApi";
 import { useGetAllServiceQuery } from "@/redux/api/service";
 import { message } from "antd";
 import { useRouter } from "next/navigation";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 
 const PriceSection = () => {
     // !hooks
@@ -31,16 +31,16 @@ const PriceSection = () => {
             const addCartResponse = await addToCart(cartInfo)
             route.push('/cart')
         } catch (error) {
-            
+            console.log(error)
         }
     }
     let services;
     if (data) {
-        services = data?.data?.map((service: { category: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; serviceName: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; features: any[];id:string}) => <>
+        services = data?.data?.map((service: { category: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal  | null | undefined; serviceName: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal  | null | undefined; features: any[];id:string}) => <>
             <div className="max-w-[100rem]  px-20 border-2 border-black py-12 transition-colors duration-300 transform rounded-xl hover:bg-gray-200 dark:hover:bg-gray-800">
                 <p className="text-lg font-medium text-gray-800 dark:text-gray-100">{service?.category}</p>
 
-                <h4 className="mt-2 text-3xl font-semibold text-gray-800 dark:text-gray-100">$19 <span className="text-base font-normal text-gray-600 dark:text-gray-400">/ Month</span></h4>
+                <h4 className="mt-2 text-3xl font-semibold text-gray-800 dark:text-gray-100">{} <span className="text-base font-normal text-gray-600 dark:text-gray-400">/ Month</span></h4>
 
                 <p className="mt-4 text-gray-500 dark:text-gray-300">{service?.serviceName}</p>
 

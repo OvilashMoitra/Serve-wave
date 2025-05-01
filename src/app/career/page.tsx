@@ -1,16 +1,16 @@
-import CareerBanner from '@/components/ui/Career/CareerBanner';
-import CareerFeatures from '@/components/ui/Career/CareerFeatures';
+// import CareerBanner from '../../components/ui/Career/CareerBanner';
+// import CareerFeatures from '../../components/ui/Career/CareerFeatures';
 
 
-const career = () => {
-    return (
-        <div>
-            <CareerBanner />
+// const career = () => {
+//     return (
+//         <div>
+//             <CareerBanner />
+// <p>Under development </p>
+//             <CareerFeatures />
 
-            <CareerFeatures />
+//         </div>
+//     );
+// };
 
-        </div>
-    );
-};
-
-export default career;
+// export default career;
