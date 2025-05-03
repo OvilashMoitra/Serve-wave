@@ -9,9 +9,10 @@ import { useCreateServiceMutation } from '@/redux/api/service';
 
 import { Button, Input, message, Select } from 'antd';
 import { useState } from 'react';
+import TextArea from 'antd/lib/input/TextArea';
 import { Controller, SubmitHandler, useFormContext,useForm } from 'react-hook-form';
 
-const { TextArea } = Input;
+// const { TextArea } = Input;
 type IService = {
     addedBy: string,
     "serviceName": string,

@@ -5,12 +5,10 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-
                 hostname: 'i.ibb.co',
-                
             },
         ],
     },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

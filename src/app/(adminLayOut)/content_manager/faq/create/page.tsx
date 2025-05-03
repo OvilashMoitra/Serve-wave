@@ -5,8 +5,8 @@ import { localStorageHelper } from '@/helper/credential';
 import { useCreateFAQMutation } from '@/redux/api/faqApi';
 import { Button, Input, message } from 'antd';
 import { Controller, SubmitHandler, useForm, useFormContext } from 'react-hook-form';
-
-const { TextArea } = Input;
+import TextArea from 'antd/lib/input/TextArea';
+// const { TextArea } = Input;
 
 type IFAQ = {
     question: string

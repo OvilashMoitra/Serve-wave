@@ -3,7 +3,7 @@ import { Button, Radio, RadioChangeEvent, Rate } from "antd";
 import Form from "./Form/Form";
 import { SubmitHandler } from "react-hook-form";
 import {  useRef, useState } from "react";
-import TextArea from "antd/es/input/TextArea";
+import TextArea from 'antd/lib/input/TextArea';
 import DynamicModal from "./Modal/Modal";
 
 

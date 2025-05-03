@@ -30,16 +30,17 @@ const page = () => {
         const loginResponse = await userLogin(data);
 
         
-
+        // @ts-ignore
         if (loginResponse?.data?.data?.accessToken) {
             router.back()
         } 
 
 
-
+        // @ts-ignore
         localStorageHelper.saveToLocalStorage('BBP_TOKEN',
-        {"BBP_Access_token":loginResponse?.data?.data?.accessToken});
+            { "BBP_Access_token": loginResponse?.data?.data?.accessToken });
         
+        // @ts-ignore       
         if (loginResponse?.data?.success===true) {
             message.success('Login Success')
         } else {
